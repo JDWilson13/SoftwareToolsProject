@@ -20,7 +20,6 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
-this.api = new InfermedicaApi(settings["appID"], settings["appKey"]);
-
-this.patient = new Patient();
-x;
+// this.api = new InfermedicaApi(settings["appID"], settings["appKey"]);
+// this.patient = new Patient();
+// x;
