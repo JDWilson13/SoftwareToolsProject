@@ -1,0 +1,6 @@
+Sunday Feb - 16
+-beginning work on front end 
+-setting up repos 
+-brainstorming project details
+-working on api calls
+-getting team organized 
