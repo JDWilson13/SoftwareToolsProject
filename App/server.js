@@ -1,6 +1,6 @@
-import InfermedicaApi from "./infermedica-api";
-import settings from "./settings";
-import Patient from "./patient";
+// import InfermedicaApi from "./infermedica-api";
+// import settings from "./settings";
+// import Patient from "./patient";
 
 var message = "Imma programming wizard";
 console.log(message);
