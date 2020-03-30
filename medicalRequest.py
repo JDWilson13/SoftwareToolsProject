@@ -16,7 +16,7 @@ payload = {"sex": "male", "age": 30, "evidence": [
     }
 ]
 }
-headers = {"App-Id": "bb7f8163", "App-Key": "0a6004ffd8f59b011e9596237a34e44e",
+headers = {"App-Id": "bb7f8163", "App-Key": "secret",
            "Content-Type": "application/json"}
 res = requests.post(url, json=payload, headers=headers)
 print(res.text)
