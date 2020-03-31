@@ -7,12 +7,12 @@ const dotenv = require("dotenv");
 dotenv.config({ path: __dirname + "/../.env" });
 const app = express();
 
-const exampleRouter = require("./routes/example");
+const diagnosisRouter = require("./routes/diagnosis");
 
-app.use("/example", exampleRouter);
+app.use("/diagnosis", diagnosisRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World " + req.query.question);
+  res.send("Hello World");
 });
 
 app.listen(3000, () => console.log("Server started on port 3000"));

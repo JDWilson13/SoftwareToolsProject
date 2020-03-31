@@ -4,3 +4,10 @@ Sunday Feb - 16
 -brainstorming project details
 -working on api calls
 -getting team organized 
+
+Saturday, Feb - 29
+- reformatted repo to help with routing
+- added routes
+
+Thursday Mar 5
+- added python demonstration of API call

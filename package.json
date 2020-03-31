@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express-generator": "^4.16.1"
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "mongoose": "^5.9.7"
   },
   "devDependencies": {
     "joi": "^14.3.1",
