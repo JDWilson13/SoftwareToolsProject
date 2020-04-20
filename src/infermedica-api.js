@@ -9,7 +9,7 @@ class InfermedicaApi {
     appId,
     appKey,
     apiModel = "infermedica-en",
-    apiUrl = "https://api.infermedica.com/v2/diagnosis"
+    apiUrl = "https://api.infermedica.com/v2/"
   ) {
     this.appId = appId;
     this.appKey = appKey;
@@ -37,13 +37,20 @@ class InfermedicaApi {
     const headers = {
       "App-Id": this.appId,
       "App-Key": this.appKey,
-      Model: this.apiModel,
+      // "Model": this.apiModel,
+      Accept: "application/json",
       "Content-Type": "application/json",
     };
 
     if (this.interviewId) {
       headers["Interview-Id"] = this.interviewId;
     }
+
+    console.log(this.apiUrl + url, {
+      method,
+      headers,
+      body: data,
+    });
 
     return fetch(this.apiUrl + url, {
       method,
