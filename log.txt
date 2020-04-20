@@ -11,3 +11,9 @@ Saturday, Feb - 29
 
 Thursday Mar 5
 - added python demonstration of API call
+
+Sunday, April 13
+- Worked on front end template
+
+Monday, April 14
+- Worked on connecting front and back end
