@@ -5,6 +5,8 @@ var bodyParser = require("body-parser");
 const router = new Router();
 const DiagnosisController = require("../controllers/diagnosis");
 const InfermedicaApi = require("../infermedica-api");
+let question = "";
+let symptomId = "";
 
 router.use(bodyParser.json());
 this.api = new InfermedicaApi(
@@ -12,17 +14,33 @@ this.api = new InfermedicaApi(
   process.env.INFERMEDICA_APP_KEY
 );
 
-router.use((req, res, next) => {
-  // console.log("Diagnosis Made!", req);
-  res.send({ message: "I diagnose you with dead!" });
-  next();
-});
+// router.use((req, res, next) => {
+//   // console.log("Diagnosis Made!", req);
+//   res.send({
+//     question: this.question,
+//     symptomId: this.symptomId,
+//   });
+//   next();
+// });
 
-router.post("/symptoms", (req, res, next) => {
-  console.log(req.body);
-  // //this.api._post(this.api.url, req.body).then(console.log);
-  // this.api._post(this.api.url, JSON.parse(req.body)).then(console.log);
-  this.api.diagnosis(req.body).then(console.log);
+// router.get("/", async (req, res) => {
+//   const apiResponse = await this.api.getSymptoms();
+//   res.sedn(apiResponse);
+// });
+
+router.post("/symptoms", async (req, res) => {
+  // console.log(req.body);
+  console.log(req.query);
+
+  const apiResponse = await this.api.diagnosis(req.body);
+  console.log(JSON.stringify(apiResponse, null, 2));
+  // console.log("apiResponse: ", apiResponse.question.items["0"].id);
+  // this.question = question;
+  // this.symptomId = symptomId;
+
+  res.send(apiResponse);
+
+  // console.log(this.api.diagnosis(req.body.question.items.id));
 });
 
 module.exports = router;

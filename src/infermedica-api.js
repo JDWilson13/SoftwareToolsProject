@@ -56,7 +56,8 @@ class InfermedicaApi {
       method,
       headers,
       body: data,
-    }).then((response) => {
+    }).then(async (response) => {
+      // console.log(await response.text());
       return response.json();
     });
   }
