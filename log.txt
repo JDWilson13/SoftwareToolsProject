@@ -4,3 +4,37 @@ Sunday Feb - 16
 -brainstorming project details
 -working on api calls
 -getting team organized 
+
+Saturday, Feb - 29
+- reformatted repo to help with routing
+- added routes
+
+Thursday Mar 5
+- added python demonstration of API call
+
+Sunday, April 13
+- Worked on front end template
+- touching base with all team members on how we want to procede
+- how we are adapting our work style for quarintine 
+
+Monday, April 14
+- set up back end to stand alone-will be connected later
+- Worked on connecting front and back end
+
+Wednesday, April 16
+- finished connecting front and back ends 
+- completed api call logic 
+- created website logo 
+
+Thursday, April 17
+- fixed error that prevented subsequent questions from loading on frontend
+- testing 
+
+Sunday, April 19
+- completed frontend logic 
+- css styling 
+- testing 
+
+Monday, April 20
+- testing 
+- Finished up project and code cleanup

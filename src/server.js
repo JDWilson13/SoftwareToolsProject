@@ -3,38 +3,48 @@
 // import Patient from "./patient";
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
+const InfermedicaApi = require("./infermedica-api");
 
 dotenv.config({ path: __dirname + "/../.env" });
 const app = express();
 
-const exampleRouter = require("./routes/example");
+const diagnosisRouter = require("./routes/diagnosis");
 
-app.use("/example", exampleRouter);
+const payload = {
+  sex: "male",
+  age: 30,
+  evidence: [
+    {
+      id: "s_21",
+      choice_id: "",
+      initial: "true",
+    },
+  ],
+};
+
+// // this.api.getSymptoms().then(console.log);
+
+// this.api._post(this.api.apiUrl, payload).then(console.log);
+
+// app.use(cors());
+
+// // this.api.getSymptoms().then(console.log);
+
+// this.api._post(this.api.apiUrl, payload).then(console.log);
+
+// app.use(cors());
+
+// // this.api.getSymptoms().then(console.log);
+
+// this.api._post(this.api.apiUrl, payload).then(console.log);
+
+app.use(cors());
+
+app.use("/diagnosis", diagnosisRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World " + req.query.question);
+  res.send("Hello World");
 });
 
 app.listen(3000, () => console.log("Server started on port 3000"));
-
-// var message = "Imma programming wizard";
-// console.log(message);
-
-// const http = require("http");
-
-// const hostname = "127.0.0.1";
-// const port = 3000;
-
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader("Content-Type", "text/plain");
-//   res.end(message);
-// });
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
-
-// this.api = new InfermedicaApi(settings["appID"], settings["appKey"]);
-// this.patient = new Patient();
-// x;

@@ -2,7 +2,9 @@
  * Created by Bradley Golski 2/16/2020
  */
 
-export default class InfermedicaApi {
+const fetch = require("node-fetch");
+
+class InfermedicaApi {
   constructor(
     appId,
     appKey,
@@ -19,11 +21,11 @@ export default class InfermedicaApi {
   }
 
   generateInterviewId() {
-    let uuidv4 = function() {
-      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+    let uuidv4 = function () {
+      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
         (
-          c ^
-          (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+          crypto.getRandomValues(new Uint8Array(1))[0] &
+          (15 >> (c / 4))
         ).toString(16)
       );
     };
@@ -32,21 +34,30 @@ export default class InfermedicaApi {
   }
 
   _req(method, url, data) {
-    let headers = new Headers();
-    headers.append("App-Id", this.appId);
-    headers.append("App-Key", this.appKey);
-    headers.append("Model", this.apiModel);
-    headers.append("Content-Type", "application/json");
+    const headers = {
+      "App-Id": this.appId,
+      "App-Key": this.appKey,
+      // "Model": this.apiModel,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    };
 
     if (this.interviewId) {
-      headers.append("Interview-Id", this.interviewId);
+      headers["Interview-Id"] = this.interviewId;
     }
+
+    console.log(this.apiUrl + url, {
+      method,
+      headers,
+      body: data,
+    });
 
     return fetch(this.apiUrl + url, {
       method,
       headers,
-      body: data
-    }).then(response => {
+      body: data,
+    }).then(async (response) => {
+      // console.log(await response.text());
       return response.json();
     });
   }
@@ -83,4 +94,4 @@ export default class InfermedicaApi {
     return this._post("explain", JSON.stringify(data));
   }
 }
-export default InfermedicaApi;
+module.exports = InfermedicaApi;
