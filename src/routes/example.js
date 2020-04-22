@@ -7,6 +7,7 @@ router.use((req, res, next) => {
   next();
 });
 
+
 router.get("/test", (req, res, next) => {
   if (req.query.question === "1") {
     res.send("HAS QUESTION");
